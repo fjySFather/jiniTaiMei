@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Flask Message Board</title>
+</head>
+<body>
+    <h1>Flask Message Board</h1>
+    <form method="POST" action="{{ url_for('add_post') }}">
+        <textarea name="text"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <h2>Messages:</h2>
+    <ul>
+        {% for message in messages %}
+        <li>{{ message['text'] }} - {{ message['timestamp'] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
